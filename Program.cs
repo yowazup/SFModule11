@@ -21,6 +21,9 @@ using Microsoft.Extensions.Hosting;
 using Telegram.Bot.Polling;
 using System.Text;
 using Microsoft.Extensions.DependencyInjection;
+using MyFirstTelegramBot.Controllers;
+using MyFirstTelegramBot.Services;
+using MyFirstTelegramBot.Configuration;
 
 namespace MyFirstTelegramBot
 {
@@ -44,10 +47,31 @@ namespace MyFirstTelegramBot
 
         static void ConfigureServices(IServiceCollection services)
         {
+            //Добавляем инициализацию конфигурации
+            AppSettings appSettings = BuildAppSettings();
+            services.AddSingleton(BuildAppSettings());
+
+            //Добавляем хранилище сессий в контейнер зависимостей
+            services.AddSingleton<IStorage, MemoryStorage>();
+
+            // Подключаем контроллеры сообщений и кнопок
+            services.AddTransient<DefaultMessageController>();
+            services.AddTransient<VoiceMessageController>();
+            services.AddTransient<TextMessageController>();
+            services.AddTransient<InlineKeyboardController>();
+
             // Регистрируем объект TelegramBotClient c токеном подключения
-            services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient("5624522981:AAG0IVLBKG5Jg5PdnIAai6UXYGCNESZo6I4"));
+            services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient(appSettings.BotToken));
+
             // Регистрируем постоянно активный сервис бота
             services.AddHostedService<Bot>();
+        }
+        static AppSettings BuildAppSettings()
+        {
+            return new AppSettings()
+            {
+                BotToken = "5624522981:AAG0IVLBKG5Jg5PdnIAai6UXYGCNESZo6I4"
+            };
         }
     }
 }
