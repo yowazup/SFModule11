@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.Hosting;
+using MyFirstTelegramBot.Controllers;
+using Telegram.Bot;
 using Telegram.Bot.Exceptions;
+using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
-using Microsoft.Extensions.Logging;
-using Telegram.Bot;
-using Telegram.Bots.Extensions.Polling;
-using Microsoft.Extensions.Hosting;
-using Telegram.Bot.Polling;
-using MyFirstTelegramBot.Controllers;
 
 namespace MyFirstTelegramBot
 {

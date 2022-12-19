@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Telegram.Bot;
-using Telegram.Bot.Types;
-using MyFirstTelegramBot.Models;
+﻿using MyFirstTelegramBot.Models;
 using System.Collections.Concurrent;
 
 namespace MyFirstTelegramBot.Services
@@ -29,7 +22,7 @@ namespace MyFirstTelegramBot.Services
                 return _sessions[chatId];
 
             // Создаем и возвращаем новую, если такой не было
-            var newSession = new Session() { LanguageCode = "ru" };
+            var newSession = new Session() { LanguageCode = "RU" };
             _sessions.TryAdd(chatId, newSession);
             return newSession;
         }

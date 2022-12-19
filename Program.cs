@@ -1,27 +1,8 @@
-﻿using System;
-using System.IO;
-using System.Globalization;
-using System.Net;
-using System.Reflection.PortableExecutable;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Xml.Linq;
-using System.Security.AccessControl;
-using System.Collections.Immutable;
-using System.Collections.Generic;
-using System.Net.Security;
-using System.Data.Common;
-using Telegram.Bot.Exceptions;
-using Telegram.Bot.Types;
-using Telegram.Bot.Types.Enums;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Hosting;
+using MyFirstTelegramBot.Controllers;
 using Telegram.Bot;
-using Telegram.Bots.Extensions.Polling;
-using Microsoft.Extensions.Hosting;
-using Telegram.Bot.Polling;
 using System.Text;
 using Microsoft.Extensions.DependencyInjection;
-using MyFirstTelegramBot.Controllers;
 using MyFirstTelegramBot.Services;
 using MyFirstTelegramBot.Configuration;
 
@@ -50,6 +31,7 @@ namespace MyFirstTelegramBot
             //Добавляем инициализацию конфигурации
             AppSettings appSettings = BuildAppSettings();
             services.AddSingleton(BuildAppSettings());
+            services.AddSingleton<IFileHandler, AudioFileHandler>();
 
             //Добавляем хранилище сессий в контейнер зависимостей
             services.AddSingleton<IStorage, MemoryStorage>();
@@ -70,7 +52,11 @@ namespace MyFirstTelegramBot
         {
             return new AppSettings()
             {
-                BotToken = "5624522981:AAG0IVLBKG5Jg5PdnIAai6UXYGCNESZo6I4"
+                DownloadsFolder = "C:\\Users\\Nikita\\Downloads",
+                BotToken = "5624522981:AAG0IVLBKG5Jg5PdnIAai6UXYGCNESZo6I4",
+                AudioFileName = "audio",
+                InputAudioFormat = "ogg",
+                OutputAudioFormat = "wav",
             };
         }
     }
