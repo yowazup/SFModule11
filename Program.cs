@@ -52,11 +52,12 @@ namespace MyFirstTelegramBot
         {
             return new AppSettings()
             {
-                DownloadsFolder = "C:\\Users\\Nikita\\Downloads",
-                BotToken = "5624522981:AAG0IVLBKG5Jg5PdnIAai6UXYGCNESZo6I4",
+                DownloadsFolder = "C:/Users/Nikita/Downloads",
+                BotToken = "5810036243:AAHuApfTmd-IGNkXcUVSzz9G6Buq8VNl4qM",
                 AudioFileName = "audio",
                 InputAudioFormat = "ogg",
                 OutputAudioFormat = "wav",
+                InputAudioBitrate = 48000,
             };
         }
     }

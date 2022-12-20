@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Speech-models\**" />
+    <EmbeddedResource Remove="Speech-models\**" />
+    <None Remove="Speech-models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Class1.cs" />
     <Compile Remove="MyFirstTelegramBot.Controllers\Class1 - Copy %282%29.cs" />
     <Compile Remove="MyFirstTelegramBot.Controllers\Class1 - Copy %283%29.cs" />

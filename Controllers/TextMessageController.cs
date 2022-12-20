@@ -25,8 +25,9 @@ namespace MyFirstTelegramBot.Controllers
                     var buttons = new List<InlineKeyboardButton[]>();
                     buttons.Add(new[]
                     {
-                        InlineKeyboardButton.WithCallbackData($"\U0001F1F7\U0001F1FA Русский" , $"RU"),
-                        InlineKeyboardButton.WithCallbackData($"\U0001F1FA\U0001F1F8 English" , $"ENG")
+                        InlineKeyboardButton.WithCallbackData($"\U0001F1F7\U0001F1FA Русский" , $"ru"),
+                        InlineKeyboardButton.WithCallbackData($"\U0001F1FA\U0001F1F8 English" , $"en"),
+                        InlineKeyboardButton.WithCallbackData($"\U0001F1F5\U0001F1F9 Portugese" , $"pt")
                     });
 
                     // передаем кнопки вместе с сообщением (параметр ReplyMarkup)
