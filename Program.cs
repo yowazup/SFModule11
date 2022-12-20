@@ -52,7 +52,7 @@ namespace MyFirstTelegramBot
         {
             return new AppSettings()
             {
-                DownloadsFolder = "C:/Users/Nikita/Downloads",
+                DownloadsFolder = "D:/",
                 BotToken = "5810036243:AAHuApfTmd-IGNkXcUVSzz9G6Buq8VNl4qM",
                 AudioFileName = "audio",
                 InputAudioFormat = "ogg",
